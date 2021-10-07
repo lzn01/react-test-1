@@ -1,11 +1,12 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 // 需要导出的对象
 module.exports = {
     // 生产模式
     mode:'production',
     // 程序入口
     entry: {
-        NUI: './lib/index.tsx' // 这里就是文件名
+        index: './lib/index.tsx' // 这里就是文件名
     },
     // 代码输出目录
     output: {
@@ -22,5 +23,10 @@ module.exports = {
                 loader: "awesome-typescript-loader"
             },
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'index.html'
+        })
+    ]
 }
